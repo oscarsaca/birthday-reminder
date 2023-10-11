@@ -1,4 +1,47 @@
 body {
   color: var(--copy);
-  background-color: var(--background);
+  background-color: var(--container);
+}
+
+// titles
+[class*='title-'] {
+  color: var(--title);
+}
+
+// buttons
+.btn {
+  &--primary {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+// links
+a,
+.link {
+  color: var(--primary);
+}
+
+// forms
+input,
+select {
+  background-color: var(--container);
+  border-color: var(--border);
+
+  &:not(.disabled):focus,
+  &:not(.disabled):focus-within {
+    border-color: var(--secondary);
+  }
+}
+
+// pseudo components
+.card {
+  background-color: var(--container);
+  border-color: var(--border);
 }

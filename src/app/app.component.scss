@@ -1,0 +1,23 @@
+.scaffold {
+  height: var(--100vh);
+
+  &__content {
+    height: calc(var(--100vh) - var(--bottom-menu-height));
+    background-color: var(--background);
+    padding: calc(1.125rem + env(safe-area-inset-bottom)) 1.125rem 1.125rem;
+    overflow: auto;
+
+    &--no-bottom-menu {
+      height: var(--100vh);
+      padding-bottom: calc(1.125rem + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .scaffold {
+    &__content {
+      padding: 3rem;
+    }
+  }
+}

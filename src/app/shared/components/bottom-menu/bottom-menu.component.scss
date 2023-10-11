@@ -1,0 +1,43 @@
+.bottom-menu {
+  height: var(--bottom-menu-height);
+  background-color: var(--container);
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid var(--border);
+
+  button {
+    color: var(--copy);
+    cursor: pointer;
+    transition: color var(--transition);
+
+    &.active {
+      color: var(--primary);
+    }
+  }
+
+  svg {
+    font-size: 1.5rem;
+
+    circle {
+      stroke: currentColor;
+    }
+  }
+
+  span {
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  :host {
+    background-color: var(--background);
+  }
+
+  .bottom-menu {
+    border: {
+      left: 1px solid var(--border);
+      right: 1px solid var(--border);
+    }
+    border-radius: var(--border-radius-l1) var(--border-radius-l1) 0 0;
+  }
+}

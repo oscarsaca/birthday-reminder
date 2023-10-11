@@ -1,17 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
+
 :root {
   // global
   --100vh: calc(var(--vh, 1vh) * 100);
-  --main-width: 85.375rem;
+  --main-width: 120rem;
+  --contain-width: 48rem;
   --transition: 200ms ease 0s;
+  --bottom-menu-height: calc(4rem + env(safe-area-inset-bottom));
 
   // colors
-  --copy: #f2f2f2;
-  --background: #191919;
+  --copy: #626265;
+  --title: #191919;
+  --container: #ffffff;
+  --background: #f2f2f5;
+  --border: #dddee3;
+  --primary: #ffa8c0;
+  --secondary: #ffe4b1;
+  --white: #ffffff;
+
+  // border-radius
+  --border-radius-l1: 1rem;
+  --border-radius-l2: 0.75em;
+  --border-radius-l3: 0.5rem;
 
   // typography
-  --main-font: 'Montserrat', sans-serif;
-  --line-height: 2;
-  --font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  --line-height: 1.8;
+  --font-weight: 500;
+  --title-1-fs: 2rem;
+  --title-2-fs: 1.75rem;
+  --title-3-fs: 1.5rem;
+  --title-4-fs: 1.25rem;
+  --title-5-fs: 1.125rem;
+  --title-lh: 1.2;
+  --title-fw: 700;
+  --btn-lh: 1.2;
+  --btn-fw: 500;
 
   // sizing
   --full: 100%;

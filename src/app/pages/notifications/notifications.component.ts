@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-notifications',
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.scss'],
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.scss']
 })
 export class NotificationsComponent {
 

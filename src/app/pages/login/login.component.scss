@@ -1,0 +1,18 @@
+.login {
+  header + .card {
+    margin-top: 0.75rem;
+  }
+
+  form {
+    gap: 0.5rem;
+  }
+
+  @media screen and (min-width: 769px) {
+    & {
+      form {
+        gap: 0.75rem;
+      }
+    }
+  }
+}
+

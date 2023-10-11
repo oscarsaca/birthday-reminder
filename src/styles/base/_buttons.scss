@@ -1,0 +1,42 @@
+// buttons
+.btn {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--border-radius-l3);
+  cursor: pointer;
+  transition: opacity var(--transition);
+
+  &--secondary {
+    border-style: solid;
+    border-width: 2px;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.5
+  }
+
+  @media (hover: hover) {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus {
+      opacity: 0.7;
+    }
+  }
+}
+
+// links
+a,
+.link {
+  cursor: pointer;
+  transition: opacity var(--transition);
+
+  @media (hover: hover) {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus {
+      opacity: 0.7;
+    }
+  }
+}

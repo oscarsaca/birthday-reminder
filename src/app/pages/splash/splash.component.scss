@@ -1,0 +1,16 @@
+:host {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--container)
+}
+
+ng-lottie {
+  width: 8rem;
+  max-width: 100%;
+}

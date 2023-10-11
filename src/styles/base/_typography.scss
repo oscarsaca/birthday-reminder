@@ -3,3 +3,36 @@ body {
   line-height: var(--line-height);
   font-weight: var(--font-weight);
 }
+
+[class*='title-'] {
+  line-height: var(--title-lh);
+  font-weight: var(--title-fw);
+}
+
+.title-1 {
+  font-size: var(--title-1-fs);
+}
+
+.title-2 {
+  font-size: var(--title-2-fs);
+}
+
+.title-3 {
+  font-size: var(--title-3-fs);
+}
+
+.title-4 {
+  font-size: var(--title-4-fs);
+}
+
+.title-5 {
+  font-size: var(--title-5-fs);
+}
+
+
+a,
+.link,
+.btn {
+  line-height: var(--btn-lh);
+  font-weight: var(--btn-fw);
+}

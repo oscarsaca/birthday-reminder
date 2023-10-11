@@ -1,1 +1,28 @@
-<p>sign-up works!</p>
+<div class="sign-up contain">
+  <header class="text-align:center">
+    <h3 class="title-1">sign up</h3>
+  </header>
+
+  <div class="card">
+    <form class="nlf-column">
+      <input
+        formControlName="firstName"
+        type="text"
+        placeholder="first name"/>
+      <input
+        formControlName="lastName"
+        type="text"
+        placeholder="last name"/>
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="email"/>
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="password"/>
+      <button class="btn btn--primary full" type="submit">register now</button>
+      <a class="btn btn--secondary full" routerLink="/login" e>already have an account?</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+input,
+select {
+  color: var(--title);
+  height: 2.75rem;
+  padding: 0.25rem 0.5rem;
+  outline: none;
+  border-radius: var(--border-radius-l3);
+  border-style: solid;
+  border-width: 1px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  transition: border-color var(--transition);
+
+  &:not(.full) {
+    width: 100%;
+  }
+}
