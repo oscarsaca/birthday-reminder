@@ -1,0 +1,199 @@
+@use '../abstracts/_mixins.scss' as m;
+
+// "next" level grid
+[class*='nlg'] {
+  --columns-2: repeat(2, 1fr);
+  --columns-3: repeat(3, 1fr);
+  --columns-4: repeat(4, 1fr);
+  --columns-5: repeat(5, 1fr);
+  --columns-6: repeat(6, 1fr);
+  --columns-7: repeat(7, 1fr);
+  --columns-8: repeat(8, 1fr);
+  @include m.grid($display: grid);
+
+  // justify-items | cells x-axis
+  &[class*='cell-center'] {
+    @include m.grid($justify-items: center);
+  }
+
+  &[class*='cell-start'] {
+    @include m.grid($justify-items: start);
+  }
+
+  &[class*='cell-end'] {
+    @include m.grid($justify-items: end);
+  }
+
+  // align-items | cells y-axis
+  &[class*='cell-middle'] {
+    @include m.grid($align-items: center);
+  }
+
+  &[class*='cell-top'] {
+    @include m.grid($align-items: start);
+  }
+
+  &[class*='cell-bottom'] {
+    @include m.grid($align-items: end);
+  }
+
+  // justify-content | (if grid container is smaller than parent) x-axis
+  &[class*='center'] {
+    @include m.grid($justify-content: center);
+  }
+
+  &[class*='start'] {
+    @include m.grid($justify-content: start);
+  }
+
+  &[class*='end'] {
+    @include m.grid($justify-content: end);
+  }
+
+  &[class*='-between'] {
+    @include m.grid($justify-content: space-between);
+  }
+
+  &[class*='-around'] {
+    @include m.grid($justify-content: space-around);
+  }
+
+  &[class*='-evenly'] {
+    @include m.grid($justify-content: space-evenly);
+  }
+
+  // align-content | (if grid container is smaller than parent) y-axis
+  &[class*='-middle'] {
+    @include m.grid($align-content: center);
+  }
+
+  &[class*='-top'] {
+    @include m.grid($align-content: start);
+  }
+
+  &[class*='-bottom'] {
+    @include m.grid($align-content: end);
+  }
+
+  // "gap"
+  @each $size, $gap in m.$gaps {
+    &.gap\:#{$size} {
+      gap: #{$gap}rem;
+    }
+  }
+
+  // columns
+  &[class*='-col-2'] {
+    grid-template-columns: var(--columns-2);
+  }
+
+  &[class*='-col-3'] {
+    grid-template-columns: var(--columns-3);
+  }
+
+  &[class*='-col-4'] {
+    grid-template-columns: var(--columns-4);
+  }
+
+  &[class*='-col-5'] {
+    grid-template-columns: var(--columns-5);
+  }
+}
+
+// range(1367px to infinity and above)
+@media screen and (min-width: 1367px) {
+  [class*='nlg'] {
+    &[class*='-col-6'] {
+      grid-template-columns: var(--columns-6);
+    }
+
+    &[class*='-col-7'] {
+      grid-template-columns: var(--columns-7);
+    }
+
+    &[class*='-col-8'] {
+      grid-template-columns: var(--columns-8);
+    }
+  }
+}
+
+// range(1366px - 1025px)
+@media screen and (max-width: 1366px) and (min-width: 1025px) {
+  [class*='nlg'] {
+    &[class*='-col-6'],
+    &[class*='-col-7'],
+    &[class*='-col-8'] {
+      grid-template-columns: var(--columns-5);
+    }
+  }
+}
+
+// range(1024px - 769px)
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  [class*='nlg'] {
+    &[class*='-col-5'],
+    &[class*='-col-6'],
+    &[class*='-col-7'],
+    &[class*='-col-8'] {
+      grid-template-columns: var(--columns-4);
+    }
+  }
+}
+
+// 550px responsive
+@media screen and (max-width: 550px) {
+  [class*='nlg'] {
+    &[class*='-col-3'],
+    &[class*='-col-4'],
+    &[class*='-col-5'],
+    &[class*='-col-6'],
+    &[class*='-col-7'],
+    &[class*='-col-8'] {
+      grid-template-columns: var(--columns-2);
+    }
+
+    &[class*='-break-550'] {
+      grid-template-columns: none;
+    }
+  }
+}
+
+// range(768px - 551px)
+@media screen and (max-width: 768px) and (min-width: 551px) {
+  [class*='nlg'] {
+    &[class*='-col-4'],
+    &[class*='-col-5'],
+    &[class*='-col-6'],
+    &[class*='-col-7'],
+    &[class*='-col-8'] {
+      grid-template-columns: var(--columns-3);
+    }
+  }
+}
+
+// 1366px responsive
+@media screen and (max-width: 1366px) {
+  [class*='nlg'] {
+    &[class*='-break-1366'] {
+      grid-template-columns: none;
+    }
+  }
+}
+
+// 1024px responsive
+@media screen and (max-width: 1024px) {
+  [class*='nlg'] {
+    &[class*='-break-1024'] {
+      grid-template-columns: none;
+    }
+  }
+}
+
+// 768px responsive
+@media screen and (max-width: 768px) {
+  [class*='nlg'] {
+    &[class*='-break-768'] {
+      grid-template-columns: none;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+// gap sizes
+$gaps: (
+  '05': 0.25,
+  '10': 0.5,
+  '15': 0.75,
+  '20': 1,
+  '25': 1.25,
+  '30': 1.5,
+  '35': 1.75,
+  '40': 2,
+  '45': 2.25,
+  '50': 2.5,
+  '55': 2.75,
+  '60': 3,
+  '65': 3.25,
+  '70': 3.5,
+  '75': 3.75,
+  '80': 4,
+);
+
+// css "flex"
+@mixin flex(
+  $display: null,
+  $wrap: null,
+  $justify-content: null,
+  $align-items: null,
+  $flex-direction: null) {
+
+  @if $display {
+    display: $display;
+  }
+
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+
+  @if $justify-content {
+    justify-content: $justify-content;
+  }
+
+  @if $align-items {
+    align-items: $align-items;
+  }
+
+  @if $flex-direction {
+    flex-direction: $flex-direction;
+  }
+}
+
+// css "grid"
+@mixin grid(
+  $display: null,
+  $justify-items: null,
+  $align-items: null,
+  $place-items: null,
+  $justify-content: null,
+  $align-content: null,
+  $place-content: null) {
+  @if $display {
+    display: $display;
+  }
+
+  @if $justify-items {
+    justify-items: $justify-items;
+  }
+
+  @if $align-items {
+    align-items: $align-items;
+  }
+
+  @if $place-items {
+    place-items: $place-items;
+  }
+
+  @if $justify-content {
+    justify-content: $justify-content
+  }
+
+  @if $align-content {
+    align-content: $align-content
+  }
+
+  @if $place-content {
+    place-content: $place-content
+  }
+}

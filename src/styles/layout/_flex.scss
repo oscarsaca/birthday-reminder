@@ -1,0 +1,224 @@
+@use '../abstracts/_mixins.scss' as m;
+
+// "next" level flex
+[class*='nlf'] {
+  @include m.flex($display: flex);
+
+  &[class*='-inline'] {
+    @include m.flex($display: inline-flex);
+  }
+
+  &[class*='-wrap'] {
+    @include m.flex($wrap: wrap);
+  }
+
+  // justify-content
+  &[class*='-center'] {
+    @include m.flex($justify-content: center);
+  }
+
+  &[class*='-start'] {
+    @include m.flex($justify-content: flex-start);
+  }
+
+  &[class*='-end'] {
+    @include m.flex($justify-content: flex-end);
+  }
+
+  &[class*='-between'] {
+    @include m.flex($justify-content: space-between);
+  }
+
+  &[class*='-around'] {
+    @include m.flex($justify-content: space-around);
+  }
+
+  &[class*='-evenly'] {
+    @include m.flex($justify-content: space-evenly);
+  }
+
+  // align-items
+  &[class*='-middle'] {
+    @include m.flex($align-items: center);
+  }
+
+  &[class*='-top'] {
+    @include m.flex($align-items: flex-start);
+  }
+
+  &[class*='-bottom'] {
+    @include m.flex($align-items: flex-end);
+  }
+
+  &[class*='-baseline'] {
+    @include m.flex($align-items: baseline);
+  }
+
+  // flex-direction
+  &[class*='-row'] {
+    @include m.flex($flex-direction: row);
+  }
+
+  &[class*='-reverse'] {
+    @include m.flex($flex-direction: row-reverse);
+  }
+
+  &[class*='-column'] {
+    @include m.flex($flex-direction: column);
+  }
+
+  &[class*='-reverse'][class*='-column'] {
+    @include m.flex($flex-direction: column-reverse);
+  }
+
+  // flex children
+  & .fit {
+    flex: 0 0 auto;
+  }
+
+  & .auto {
+    flex: 1 1 auto;
+  }
+
+  & .fit-auto {
+    flex: 0 1 auto;
+  }
+
+  & .auto.fit,
+  & .auto-fit {
+    flex: 1 0 auto;
+  }
+
+  & > .stretch-self {
+    align-self: stretch;
+  }
+
+  @each $size, $gap in m.$gaps {
+    &.gap\:#{$size} {
+      --gap-#{$size}: #{$gap}rem;
+      --gap-#{$size}-half: calc(var(--half) - (var(--gap-#{$size}) / 2));
+      --gap-#{$size}-third: calc(var(--third) - (var(--gap-#{$size}) / 3 * 2));
+      --gap-#{$size}-two-thirds: calc(var(--two-thirds) - (var(--gap-#{$size}) / 3));
+      --gap-#{$size}-fourth: calc(var(--fourth) - (var(--gap-#{$size}) / 4 * 3));
+      --gap-#{$size}-three-fourths: calc(var(--three-fourths) - (var(--gap-#{$size}) / 4));
+      --gap-#{$size}-fifth: calc(var(--fifth) - (var(--gap-#{$size}) / 5 * 4));
+      --gap-#{$size}-two-fifths: calc(var(--two-fifths) - (var(--gap-#{$size}) / 5 * 3));
+      --gap-#{$size}-three-fifths: calc(var(--three-fifths) - (var(--gap-#{$size}) / 5 * 2));
+      --gap-#{$size}-four-fifths: calc(var(--four-fifths) - (var(--gap-#{$size}) / 5));
+      --gap-#{$size}-sixth: calc(var(--sixth) - (var(--gap-#{$size}) / 6 * 5));
+      --gap-#{$size}-five-sixths: calc(var(--five-sixths) - (var(--gap-#{$size}) / 6));
+      gap: var(--gap-#{$size});
+
+      > .half,
+      &[class*='-items-2'] > * {
+        width: var(--gap-#{$size}-half);
+      }
+
+      > .third,
+      &[class*='-items-3'] > * {
+        width: var(--gap-#{$size}-third);
+      }
+
+      > .two-thirds {
+        width: var(--gap-#{$size}-two-thirds);
+      }
+
+      > .fourth,
+      &[class*='-items-4'] > * {
+        width: var(--gap-#{$size}-fourth);
+      }
+
+      > .three-fourths {
+        width: var(--gap-#{$size}-three-fourths);
+      }
+
+      > .fifth,
+      &[class*='-items-5'] > * {
+        width: var(--gap-#{$size}-fifth);
+      }
+
+      > .two-fifths {
+        width: var(--gap-#{$size}-two-fifths);
+      }
+
+      > .three-fifths {
+        width: var(--gap-#{$size}-three-fifths);
+      }
+
+      > .four-fifths {
+        width: var(--gap-#{$size}-four-fifths);
+      }
+
+      > .sixth,
+      &[class*='-items-6'] > * {
+        width: var(--gap-#{$size}-sixth);
+      }
+
+      > .five-sixths {
+        width: var(--gap-#{$size}-five-sixths);
+      }
+    }
+  }
+}
+
+@each $size, $margin in m.$gaps {
+  .cm\:#{$size}:not([class*='nlf']) {
+    --cm-#{$size}: #{$margin}rem;
+
+    > * + * {
+      margin-top: var(--cm-#{$size});
+    }
+  }
+}
+
+// 1366px responsive
+@media screen and (max-width: 1366px) {
+  [class*='nlf'] {
+    &[class*='-col-1366'] {
+      @include m.flex($flex-direction: column);
+
+      > * {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+// 1024px responsive
+@media screen and (max-width: 1024px) {
+  [class*='nlf'] {
+    &[class*='-col-1024'] {
+      @include m.flex($flex-direction: column);
+
+      > * {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+// 768px responsive
+@media screen and (max-width: 768px) {
+  [class*='nlf'] {
+    &[class*='-col-768'] {
+      @include m.flex($flex-direction: column);
+
+      > * {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+// 550px responsive
+@media screen and (max-width: 550px) {
+  [class*='nlf'] {
+    &[class*='-col-550'] {
+      @include m.flex($flex-direction: column);
+
+      > * {
+        width: 100% !important;
+      }
+    }
+  }
+}
