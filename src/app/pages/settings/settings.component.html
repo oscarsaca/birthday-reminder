@@ -1,42 +1,33 @@
 <div class="settings contain nlf-column gap:15">
-  <header class="full text-align:center">
-    <h3 class="title-1">Settings</h3>
-  </header>
+  <app-page-header title="Settings"></app-page-header>
 
-  <div class="settings__info card full">
-    <!-- TODO: first name -->
+  <div *ngIf="(user$ | async) as user" class="settings__info card full">
+    <!-- TODO: display name -->
     <div class="settings__item nlf-middle gap:05">
-      <strong class="title-6 fit">first name:</strong>
-      <span>oscar</span>
+      <strong class="title-6 fit">Name:</strong>
+      <span class="text-transform:lowercase">{{ user.displayName }}</span>
     </div>
 
-    <!-- TODO: last name -->
     <div class="settings__item nlf-middle gap:05">
-      <strong class="title-6 fit">last name:</strong>
-      <span>saca</span>
-    </div>
-
-    <!-- TODO: email -->
-    <div class="settings__item nlf-middle gap:05">
-      <strong class="title-6 fit">email:</strong>
-      <span>oscarsaca88@gmail.com</span>
+      <strong class="title-6 fit">Email:</strong>
+      <span class="text-transform:lowercase">{{ user.email }}</span>
     </div>
 
     <!-- TODO: notifications? -->
     <form class="settings__item nlf-middle gap:10">
-      <strong class="title-6 fit">notifications:</strong>
+      <strong class="title-6 fit">Notifications:</strong>
       <label class="nlf-middle gap:05" for="notifications">
         <input
           type="checkbox"
           id="notifications"
           name="notification"
           value="notifications"/>
-        <span class="enabled">enabled</span>
-        <span class="disabled">disabled</span>
+        <span class="enabled">Enabled</span>
+        <span class="disabled">Disabled</span>
       </label>
     </form>
 
     <!-- Logout -->
-    <button class="btn btn--secondary full" (click)="logout()">logout</button>
+    <button class="btn btn--secondary full" (click)="logout()">Logout</button>
   </div>
 </div>

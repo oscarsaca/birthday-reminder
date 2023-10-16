@@ -4,13 +4,14 @@ import { Router, RouterLink } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { AuthService } from "../../shared/services/auth.service";
 import { ButtonLoaderComponent } from "../../shared/components/button-loader/button-loader.component";
+import { PageHeaderComponent } from "../../shared/components/page-header/page-header.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule, ButtonLoaderComponent],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule, ButtonLoaderComponent, PageHeaderComponent],
 })
 export class LogInComponent {
   isLoggingIn: boolean = false;

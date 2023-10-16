@@ -1,20 +1,18 @@
 <div class="login contain nlf-column gap:15">
-  <header class="full text-align:center">
-    <h3 class="title-1">login</h3>
-  </header>
+  <app-page-header title="Login"></app-page-header>
 
   <div class="card full">
     <form class="nlf-column gap:15" [formGroup]="loginForm" (ngSubmit)="login()">
       <input
         formControlName="email"
         type="email"
-        placeholder="email"
+        placeholder="Email"
         [ngClass]="{ 'invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched }"/>
 
       <input
         formControlName="password"
         type="password"
-        placeholder="password"
+        placeholder="Password"
         autocomplete="off"
         [ngClass]="{ 'invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched }"/>
 
@@ -22,17 +20,17 @@
               class="btn btn--primary"
               type="submit"
               [disabled]="!loginForm.valid"
-      >sign in
+      >Sign In
       </button>
 
       <ng-container *ngIf="isLoggingIn">
         <ng-container *ngTemplateOutlet="loadingButton"></ng-container>
       </ng-container>
 
-      <a class="btn btn--secondary full" routerLink="/sign-up">no account? register here</a>
+      <a class="btn btn--secondary full" routerLink="/sign-up">No account? Register here</a>
 
       <div class="login__recover-password nlf-middle-center full">
-        <button *ngIf="!isRecoveringPassword" class="link text-align:center tull" (click)="recoverPassword()">forgot
+        <button *ngIf="!isRecoveringPassword" class="link text-align:center tull" (click)="recoverPassword()">Forgot
           your password?
         </button>
 

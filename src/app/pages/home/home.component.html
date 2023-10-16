@@ -1,5 +1,7 @@
-<div class="home contain">
-  <header class="text-align:center">
-    <h3 class="title-1">home</h3>
-  </header>
+<div class="home contain nlf-column gap:15">
+  <app-page-header *ngIf="(userFirstname$ | async) as userFirstname" title="Hi, {{ userFirstname}}!"></app-page-header>
+
+  <div class="card full text-align:center">
+    <p>Your birthday feed coming soon!</p>
+  </div>
 </div>

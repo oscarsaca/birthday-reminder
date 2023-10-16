@@ -1,7 +1,7 @@
 <div class="scaffold full nlf-column">
-  <div class="scaffold__content main full auto" [class.scaffold__content--no-bottom-menu]="!showBottomMenu">
+  <div class="scaffold__content main full auto" [class.scaffold__content--no-bottom-menu]="!(showBottomMenu$ | async)">
     <router-outlet></router-outlet>
   </div>
 
-  <app-bottom-menu *ngIf="showBottomMenu" class="fit full"></app-bottom-menu>
+  <app-bottom-menu *ngIf="showBottomMenu$ | async" class="fit full"></app-bottom-menu>
 </div>

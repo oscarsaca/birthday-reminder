@@ -1,7 +1,8 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from "@angular/router";
 import { ViewportHeightService } from "./shared/services/viewport-height.service";
-import { filter, Subject, takeUntil } from "rxjs";
+import { filter, map, startWith } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 const HIDDEN_ROUTES: string[] = ['/', '/splash', '/login', '/sign-up', '/error'];
 
@@ -10,15 +11,14 @@ const HIDDEN_ROUTES: string[] = ['/', '/splash', '/login', '/sign-up', '/error']
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
+
+  showBottomMenu$!: Observable<boolean>;
+
   @HostListener('window:resize', ['$event'])
   onResize(): void {
     this.viewportHeightService.setVh();
   }
-
-  private destroy$: Subject<void> = new Subject<void>();
-
-  showBottomMenu: boolean = true;
 
   constructor(
     private viewportHeightService: ViewportHeightService,
@@ -27,21 +27,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.viewportHeightService.setVh();
-    this.subscribeToRouterEvents();
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  subscribeToRouterEvents(): void {
-    this.router.events.pipe(
+    this.showBottomMenu$ = this.router.events.pipe(
       filter(this.isNavigationEndEvent),
-      takeUntil(this.destroy$)
-    ).subscribe((event: NavigationEnd): void => {
-      this.showBottomMenu = !this.shouldHideMenu(event.url);
-    });
+      map((event: NavigationEnd) => !this.shouldHideMenu(event.url)),
+      startWith(true)
+    );
   }
 
   isNavigationEndEvent(event: any): event is NavigationEnd {

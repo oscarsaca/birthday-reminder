@@ -1,32 +1,30 @@
 <div class="sign-up contain nlf-column gap:15">
-  <header class="full text-align:center">
-    <h3 class="title-1">sign up</h3>
-  </header>
+  <app-page-header title="Sign Up"></app-page-header>
 
   <div class="card full">
     <form class="nlf-column gap:15" [formGroup]="signUpForm" (ngSubmit)="signup()">
       <input
         formControlName="firstName"
         type="text"
-        placeholder="first name"
+        placeholder="First Name"
         [ngClass]="{ 'invalid': signUpForm.get('firstName')?.invalid && signUpForm.get('firstName')?.touched }"/>
 
       <input
         formControlName="lastName"
         type="text"
-        placeholder="last name"
+        placeholder="Last Name"
         [ngClass]="{ 'invalid': signUpForm.get('lastName')?.invalid && signUpForm.get('lastName')?.touched }"/>
 
       <input
         formControlName="email"
         type="email"
-        placeholder="email"
+        placeholder="Email"
         [ngClass]="{ 'invalid': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched }"/>
 
       <input
         formControlName="password"
         type="password"
-        placeholder="password"
+        placeholder="Password"
         autocomplete="off"
         [ngClass]="{ 'invalid': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched }"/>
 
@@ -35,14 +33,14 @@
         class="btn btn--primary full"
         type="submit"
         [disabled]="!signUpForm.valid"
-      >register now
+      >Register now
       </button>
 
       <button *ngIf="isSigningUp" class="btn btn--primary">
         <app-button-loader></app-button-loader>
       </button>
 
-      <a class="btn btn--secondary full" routerLink="/login">already have an account?</a>
+      <a class="btn btn--secondary full" routerLink="/login">Aready have an account?</a>
     </form>
   </div>
 </div>

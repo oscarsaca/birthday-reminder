@@ -7,6 +7,7 @@ body {
 [class*='title-'] {
   line-height: var(--title-lh);
   font-weight: var(--title-fw);
+  text-transform: var(--title-tt);
 }
 
 .title-1 {
@@ -39,4 +40,12 @@ a,
 .btn {
   line-height: var(--btn-lh);
   font-weight: var(--btn-fw);
+  text-transform: var(--btn-tt);
+}
+
+label,
+input,
+select,
+textarea {
+  text-transform: var(--form-tt);
 }

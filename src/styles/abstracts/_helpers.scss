@@ -43,6 +43,16 @@
   }
 }
 
+.text-transform\: {
+  &lowercase {
+    text-transform: lowercase;
+  }
+
+  &uppercase {
+    text-transform: uppercase;
+  }
+}
+
 .pseudo-before::before,
 .pseudo-after::after {
   content: '';
