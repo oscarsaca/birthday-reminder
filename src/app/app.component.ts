@@ -39,6 +39,8 @@ export class AppComponent implements OnInit {
   }
 
   shouldHideMenu(url: string): boolean {
-    return HIDDEN_ROUTES.includes(url);
+    const currentRoute: string = this.router.routerState.snapshot.url;
+
+    return (HIDDEN_ROUTES.includes(currentRoute));
   }
 }

@@ -35,7 +35,6 @@ export class AuthService {
     return from(this.fireAuth.createUserWithEmailAndPassword(email, password))
       .pipe(
         catchError(error => this.handleAuthError(error)),
-        // Update the user's display name
         switchMap(() =>
           from(this.fireAuth.currentUser).pipe(
             switchMap(user => {
