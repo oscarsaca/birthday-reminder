@@ -3,13 +3,14 @@ import { CommonModule } from "@angular/common";
 import { map, Observable } from "rxjs";
 import { AuthService } from "../../shared/services/auth.service";
 import { PageHeaderComponent } from "../../shared/components/page-header/page-header.component";
+import { NoResultsComponent } from "../../shared/components/no-results/no-results.component";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule, PageHeaderComponent],
+  imports: [CommonModule, PageHeaderComponent, NoResultsComponent],
 })
 export class HomeComponent implements OnInit {
   user$!: Observable<any>;

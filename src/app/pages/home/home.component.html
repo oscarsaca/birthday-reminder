@@ -1,7 +1,5 @@
 <div class="home contain nlf-column gap:15">
   <app-page-header *ngIf="(userFirstname$ | async) as userFirstname" title="Hi, {{ userFirstname}}!"></app-page-header>
 
-  <div class="card full text-align:center">
-    <p>Your birthday feed coming soon!</p>
-  </div>
+  <app-no-results title="No feed to show!"></app-no-results>
 </div>
