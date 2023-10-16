@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { ViewportHeightService } from "./shared/services/viewport-height.service";
 import { filter, Subject, takeUntil } from "rxjs";
 
-const HIDDEN_ROUTES: string[] = ['/', '/splash', '/login', '/sign-up'];
+const HIDDEN_ROUTES: string[] = ['/', '/splash', '/login', '/sign-up', '/error'];
 
 @Component({
   selector: 'app-root',

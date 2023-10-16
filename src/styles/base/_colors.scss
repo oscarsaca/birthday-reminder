@@ -38,6 +38,10 @@ select {
   &:not(.disabled):not([type='checkbox']):focus-within {
     border-color: var(--secondary);
   }
+
+  &.invalid {
+    border-color: var(--red);
+  }
 }
 
 input[type='checkbox'] {

@@ -7,8 +7,9 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ContactsComponent } from "./pages/contacts/contacts.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
 import { SettingsComponent } from "./pages/settings/settings.component";
+import { ErrorComponent } from "./pages/error/error.component";
 
-export const routes: Routes = [
+export const ROUTES: Routes = [
   { path: 'splash', component: SplashComponent },
   { path: 'login', component: LogInComponent },
   { path: 'sign-up', component: SignUpComponent },
@@ -16,12 +17,13 @@ export const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'error', component: ErrorComponent },
   { path: '', redirectTo: 'splash', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'error' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule],
 })
 

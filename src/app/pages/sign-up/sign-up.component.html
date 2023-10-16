@@ -8,20 +8,24 @@
       <input
         formControlName="firstName"
         type="text"
-        placeholder="first name"/>
+        placeholder="first name"
+        [ngClass]="{ 'invalid': signUpForm.get('firstName')?.invalid && signUpForm.get('firstName')?.touched }"/>
       <input
         formControlName="lastName"
         type="text"
-        placeholder="last name"/>
+        placeholder="last name"
+        [ngClass]="{ 'invalid': signUpForm.get('lastName')?.invalid && signUpForm.get('lastName')?.touched }"/>
       <input
         formControlName="email"
         type="email"
-        placeholder="email"/>
+        placeholder="email"
+        [ngClass]="{ 'invalid': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched }"/>
       <input
         formControlName="password"
         type="password"
         placeholder="password"
-        autocomplete=""/>
+        autocomplete="off"
+        [ngClass]="{ 'invalid': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched }"/>
       <button class="btn btn--primary full" type="submit" [disabled]="!signUpForm.valid">register now</button>
       <a class="btn btn--secondary full" routerLink="/login">already have an account?</a>
     </form>

@@ -8,12 +8,14 @@
       <input
         formControlName="email"
         type="email"
-        placeholder="email"/>
+        placeholder="email"
+        [ngClass]="{ 'invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched }"/>
       <input
         formControlName="password"
         type="password"
         placeholder="password"
-        autocomplete="off"/>
+        autocomplete="off"
+        [ngClass]="{ 'invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched }"/>
       <button class="btn btn--primary" type="submit" [disabled]="!loginForm.valid">sign in</button>
       <a class="btn btn--secondary full" routerLink="/sign-up">no account? register here</a>
     </form>
