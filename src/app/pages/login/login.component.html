@@ -10,14 +10,42 @@
         type="email"
         placeholder="email"
         [ngClass]="{ 'invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched }"/>
+
       <input
         formControlName="password"
         type="password"
         placeholder="password"
         autocomplete="off"
         [ngClass]="{ 'invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched }"/>
-      <button class="btn btn--primary" type="submit" [disabled]="!loginForm.valid">sign in</button>
+
+      <button *ngIf="!isLoggingIn"
+              class="btn btn--primary"
+              type="submit"
+              [disabled]="!loginForm.valid"
+      >sign in
+      </button>
+
+      <ng-container *ngIf="isLoggingIn">
+        <ng-container *ngTemplateOutlet="loadingButton"></ng-container>
+      </ng-container>
+
       <a class="btn btn--secondary full" routerLink="/sign-up">no account? register here</a>
+
+      <div class="login__recover-password nlf-middle-center full">
+        <button *ngIf="!isRecoveringPassword" class="link text-align:center tull" (click)="recoverPassword()">forgot
+          your password?
+        </button>
+
+        <ng-container *ngIf="isRecoveringPassword">
+          <ng-container *ngTemplateOutlet="loadingButton"></ng-container>
+        </ng-container>
+      </div>
     </form>
   </div>
 </div>
+
+<ng-template #loadingButton>
+  <button class="btn btn--primary">
+    <app-button-loader></app-button-loader>
+  </button>
+</ng-template>

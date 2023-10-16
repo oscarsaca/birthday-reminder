@@ -15,14 +15,14 @@ export class AuthService {
 
     switch (error.code) {
       case 'auth/email-already-in-use':
-        alert('The email address is already in use by another account.');
+        console.error('The email address is already in use by another account.');
         break;
       case 'auth/user-not-found':
       case 'auth/wrong-password':
-        alert('Invalid email or password.');
+        console.error('Invalid email or password.');
         break;
       default:
-        alert('There was an error. Please try again later.');
+        console.error('There was an error. Please try again later.');
         break;
     }
 
@@ -45,9 +45,12 @@ export class AuthService {
     return from(this.fireAuth.signOut()).pipe(
       catchError(error => {
         console.error(`Error from Firebase: ${ error.message }`);
-        alert('There was a problem with logout. Please try again later.');
         return throwError(() => new Error('There was a problem with logout. Please try again later.'));
       })
     );
+  }
+
+  recoverPassword(email: string): Observable<void> {
+    return from(this.fireAuth.sendPasswordResetEmail(email));
   }
 }

@@ -3,15 +3,19 @@ import { CommonModule } from "@angular/common";
 import { Router, RouterLink } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { AuthService } from "../../shared/services/auth.service";
+import { ButtonLoaderComponent } from "../../shared/components/button-loader/button-loader.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule, ButtonLoaderComponent],
 })
 export class LogInComponent {
+  isLoggingIn: boolean = false;
+  isRecoveringPassword: boolean = false;
+
   loginForm: FormGroup;
 
   constructor(
@@ -20,27 +24,48 @@ export class LogInComponent {
     private router: Router,
   ) {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
 
   login(): void {
-    if (!this.loginForm.valid) {
-      alert('Please fill out all fields correctly.');
-      return;
+    if (this.loginForm.valid) {
+      this.isLoggingIn = true;
+
+      const { email, password } = this.loginForm.value;
+
+      this.authService.login(email, password)
+        .subscribe({
+          next: response => {
+            this.router.navigate(['/home']);
+          },
+          error: error => {
+            this.isLoggingIn = false;
+
+            // TODO: Make snackbar component and lazy load
+            alert(error.message);
+          }
+        });
     }
+  }
 
-    const { email, password } = this.loginForm.value;
+  recoverPassword(): void {
+    this.isRecoveringPassword = true;
 
-    this.authService.login(email, password)
-      .subscribe({
-        next: response => {
-          this.router.navigate(['/home']);
-        },
-        error: error => {
-          console.error(error);
-        }
-      });
+    this.authService.recoverPassword(this.loginForm.value.email).subscribe({
+      next: (): void => {
+        this.isRecoveringPassword = false;
+
+        // TODO: Make snackbar component and lazy load
+        alert('Password reset email sent!');
+      },
+      error: error => {
+        this.isRecoveringPassword = false;
+
+        // TODO: Make snackbar component and lazy load
+        alert(error.message);
+      }
+    })
   }
 }

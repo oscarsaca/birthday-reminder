@@ -1,0 +1,10 @@
+.login {
+  &__recover-password {
+    font-size: 0.875rem;
+    height: var(--tap-height);
+
+    button {
+      width: 100%;
+    }
+  }
+}

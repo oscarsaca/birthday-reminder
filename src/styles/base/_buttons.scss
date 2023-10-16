@@ -1,6 +1,6 @@
 // buttons
 .btn {
-  height: 2.75rem;
+  height: var(--tap-height);
   display: flex;
   align-items: center;
   justify-content: center;
