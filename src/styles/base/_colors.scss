@@ -34,9 +34,17 @@ select {
   background-color: var(--container);
   border-color: var(--border);
 
-  &:not(.disabled):focus,
-  &:not(.disabled):focus-within {
+  &:not(.disabled):not([type='checkbox']):focus,
+  &:not(.disabled):not([type='checkbox']):focus-within {
     border-color: var(--secondary);
+  }
+}
+
+input[type='checkbox'] {
+  border-color: var(--primary);
+
+  &:checked {
+    background-color: var(--primary);
   }
 }
 

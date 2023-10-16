@@ -7,12 +7,23 @@ select {
   border-radius: var(--border-radius-l3);
   border-style: solid;
   border-width: 1px;
+  transition: border-color var(--transition);
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  transition: border-color var(--transition);
 
   &:not(.full) {
     width: 100%;
   }
+}
+
+select {
+  color: var(--copy);
+}
+
+input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: -0.125rem;
 }

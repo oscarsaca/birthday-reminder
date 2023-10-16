@@ -1,0 +1,35 @@
+.settings {
+  &__item {
+    &:not(:last-child) {
+      padding-bottom: 0.5rem
+    }
+
+    & + & {
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+    }
+
+    > span {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  input[type='checkbox'] ~ span {
+    display: none;
+  }
+
+  input[type='checkbox']:not(:checked) ~ .disabled {
+    display: block;
+  }
+
+  input[type='checkbox']:checked ~ .enabled {
+    display: block;
+  }
+
+  button {
+    margin-top: 0.25rem;
+  }
+}

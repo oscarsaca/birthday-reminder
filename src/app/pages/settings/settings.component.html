@@ -1,5 +1,42 @@
-<div class="settings contain">
-  <header class="text-align:center">
+<div class="settings contain nlf-column gap:15">
+  <header class="full text-align:center">
     <h3 class="title-1">Settings</h3>
   </header>
+
+  <div class="settings__info card full">
+    <!-- TODO: first name -->
+    <div class="settings__item nlf-middle gap:05">
+      <strong class="title-6 fit">first name:</strong>
+      <span>oscar</span>
+    </div>
+
+    <!-- TODO: last name -->
+    <div class="settings__item nlf-middle gap:05">
+      <strong class="title-6 fit">last name:</strong>
+      <span>saca</span>
+    </div>
+
+    <!-- TODO: email -->
+    <div class="settings__item nlf-middle gap:05">
+      <strong class="title-6 fit">email:</strong>
+      <span>sacaclaire@gmail.com</span>
+    </div>
+
+    <!-- TODO: notifications? -->
+    <form class="settings__item nlf-middle gap:10">
+      <strong class="title-6 fit">notifications:</strong>
+      <label class="nlf-middle gap:05" for="notifications">
+        <input
+          type="checkbox"
+          id="notifications"
+          name="notification"
+          value="notifications"/>
+        <span class="enabled">enabled</span>
+        <span class="disabled">disabled</span>
+      </label>
+    </form>
+
+    <!-- Logout -->
+    <button class="btn btn--secondary full" (click)="logout()">logout</button>
+  </div>
 </div>

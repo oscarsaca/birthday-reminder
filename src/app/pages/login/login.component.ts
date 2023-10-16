@@ -1,26 +1,46 @@
 import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { Router, RouterLink } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
-import { RouterLink } from "@angular/router";
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
 })
 export class LogInComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router,
+  ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  onSubmit(): void {
-    console.log('submit');
+  login(): void {
+    if (!this.loginForm.valid) {
+      alert('Please fill out all fields correctly.');
+      return;
+    }
+
+    const { email, password } = this.loginForm.value;
+
+    this.authService.login(email, password)
+      .subscribe({
+        next: response => {
+          this.router.navigate(['/home']);
+        },
+        error: error => {
+          console.error(error);
+        }
+      });
   }
 }

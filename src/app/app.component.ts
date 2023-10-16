@@ -1,8 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from "@angular/router";
-import { BottomMenuComponent } from "./shared/components/bottom-menu/bottom-menu.component";
+import { NavigationEnd, Router } from "@angular/router";
 import { ViewportHeightService } from "./shared/services/viewport-height.service";
-import { NgIf } from "@angular/common";
 import { filter, Subject, takeUntil } from "rxjs";
 
 const HIDDEN_ROUTES: string[] = ['/', '/splash', '/login', '/sign-up'];
@@ -11,12 +9,6 @@ const HIDDEN_ROUTES: string[] = ['/', '/splash', '/login', '/sign-up'];
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    BottomMenuComponent,
-    NgIf
-  ],
 })
 export class AppComponent implements OnInit, OnDestroy {
   @HostListener('window:resize', ['$event'])
