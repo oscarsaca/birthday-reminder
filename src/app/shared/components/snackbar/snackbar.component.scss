@@ -4,6 +4,7 @@
   --snackbar-c: inherit;
   position: fixed;
   width: 100%;
+  min-height: var(--tap-height);
   max-width: calc(var(--contain-width) - (var(--content-padding) * 2));
   bottom: calc(var(--content-padding) + env(safe-area-inset-bottom));
   left: 50%;
@@ -36,10 +37,10 @@
     padding-right: 2.5rem;
   }
 
-  &__exit {
+  app-exit {
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: 0.75rem;
     transform: translateY(-50%);
   }
 

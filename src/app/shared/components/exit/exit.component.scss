@@ -1,0 +1,26 @@
+.exit {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--transition);
+
+  svg {
+    font-size: 0.875rem;
+    stroke: var(--copy);
+    stroke-width: 2.5;
+    transition: stroke var(--transition);
+  }
+}
+
+@media (hover: hover) {
+  .exit:hover,
+  .exit:focus {
+    background-color: var(--copy);
+
+    svg {
+      stroke: var(--border);
+    }
+  }
+}

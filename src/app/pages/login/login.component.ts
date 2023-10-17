@@ -5,13 +5,14 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angula
 import { AuthService } from "../../shared/services/auth.service";
 import { ButtonLoaderComponent } from "../../shared/components/button-loader/button-loader.component";
 import { PageHeaderComponent } from "../../shared/components/page-header/page-header.component";
+import { SnackbarComponent } from "../../shared/components/snackbar/snackbar.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule, ButtonLoaderComponent, PageHeaderComponent],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule, ButtonLoaderComponent, PageHeaderComponent, SnackbarComponent],
 })
 export class LogInComponent {
   isLoggingIn: boolean = false;

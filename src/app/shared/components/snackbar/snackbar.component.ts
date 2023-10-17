@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from "@angular/animations";
+import { ExitComponent } from "../exit/exit.component";
 
 export enum SnackbarType {
   info = 'info',
@@ -11,7 +12,7 @@ export enum SnackbarType {
 @Component({
   selector: 'app-snackbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ExitComponent],
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.scss'],
   animations: [
