@@ -27,7 +27,7 @@
     --snackbar-bc: var(--green);
   }
 
-  &--type-error {
+  &--type-danger {
     --snackbar-c: var(--red);
     --snackbar-bg: var(--red-auxiliary);
     --snackbar-bc: var(--red);

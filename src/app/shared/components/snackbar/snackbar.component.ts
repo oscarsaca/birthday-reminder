@@ -6,7 +6,7 @@ import { ExitComponent } from "../exit/exit.component";
 export enum SnackbarType {
   info = 'info',
   success = 'success',
-  error = 'error'
+  danger = 'danger'
 }
 
 @Component({
@@ -30,7 +30,7 @@ export enum SnackbarType {
 export class SnackbarComponent {
   @Input({ required: true }) message!: string;
   @Input() exitButton: boolean = true;
-  @Input() type: SnackbarType = SnackbarType.error;
+  @Input() type: SnackbarType = SnackbarType.info;
 
   get typeClass(): string {
     return `snackbar--type-${ this.type }`
