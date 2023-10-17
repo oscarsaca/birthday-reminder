@@ -32,6 +32,17 @@
     --snackbar-bc: var(--red);
   }
 
+  &--has-exit {
+    padding-right: 2.5rem;
+  }
+
+  &__exit {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+
   span {
     font-size: 0.875rem;
   }

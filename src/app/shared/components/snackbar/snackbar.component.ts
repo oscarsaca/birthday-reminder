@@ -28,6 +28,7 @@ export enum SnackbarType {
 })
 export class SnackbarComponent {
   @Input({ required: true }) message!: string;
+  @Input() exitButton: boolean = true;
   @Input() type: SnackbarType = SnackbarType.error;
 
   get typeClass(): string {

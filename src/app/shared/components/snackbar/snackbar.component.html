@@ -1,3 +1,3 @@
-<div class="snackbar" [ngClass]="typeClass" @fadeUp>
+<div class="snackbar" [class.snackbar--has-exit]="exitButton" [ngClass]="typeClass" @fadeUp>
   <span class="message display:block">{{ message }}</span>
 </div>
