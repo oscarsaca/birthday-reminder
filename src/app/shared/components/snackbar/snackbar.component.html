@@ -1,4 +1,8 @@
 <div class="snackbar" [class.snackbar--has-exit]="exitButton" [ngClass]="typeClass" @fadeUp>
   <span class="message display:block">{{ message }}</span>
-  <app-exit *ngIf="exitButton"></app-exit>
+  <app-exit
+    *ngIf="exitButton"
+    title="Dismiss Notification"
+    aria-label="Dismiss Notification"
+    (click)="exitClicked()"></app-exit>
 </div>

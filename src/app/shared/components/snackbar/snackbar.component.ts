@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from "@angular/animations";
 import { ExitComponent } from "../exit/exit.component";
@@ -30,9 +30,15 @@ export enum SnackbarType {
 export class SnackbarComponent {
   @Input({ required: true }) message!: string;
   @Input() exitButton: boolean = true;
-  @Input() type: SnackbarType = SnackbarType.info;
+  @Input() type: SnackbarType = SnackbarType.success;
+  
+  @Output() exitClick: EventEmitter<void> = new EventEmitter<void>();
 
   get typeClass(): string {
     return `snackbar--type-${ this.type }`
+  }
+
+  exitClicked(): void {
+    this.exitClick.emit();
   }
 }
