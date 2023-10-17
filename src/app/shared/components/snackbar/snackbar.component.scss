@@ -1,0 +1,32 @@
+.snackbar {
+  --snackbar-bg: transparent;
+  --snackbar-bc: transparent;
+  --snackbar-c: inherit;
+  padding: 0.5rem 1rem;
+  background-color: var(--snackbar-bg);
+  border-radius: var(--border-radius-l2);
+  border: 1px solid var(--snackbar-bc);
+  color: var(--snackbar-c);
+
+  &--type-info {
+    --snackbar-c: var(--blue);
+    --snackbar-bg: var(--blue-auxiliary);
+    --snackbar-bc: var(--blue);
+  }
+
+  &--type-success {
+    --snackbar-c: var(--green);
+    --snackbar-bg: var(--green-auxiliary);
+    --snackbar-bc: var(--green);
+  }
+
+  &--type-error {
+    --snackbar-c: var(--red);
+    --snackbar-bg: var(--red-auxiliary);
+    --snackbar-bc: var(--red);
+  }
+
+  span {
+    font-size: 0.875rem;
+  }
+}
