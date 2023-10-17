@@ -2,6 +2,12 @@
   --snackbar-bg: transparent;
   --snackbar-bc: transparent;
   --snackbar-c: inherit;
+  position: fixed;
+  width: 100%;
+  max-width: calc(var(--contain-width) - (var(--content-padding) * 2));
+  bottom: calc(var(--content-padding) + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translate(-50%, 0);
   padding: 0.5rem 1rem;
   background-color: var(--snackbar-bg);
   border-radius: var(--border-radius-l2);

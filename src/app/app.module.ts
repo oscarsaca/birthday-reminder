@@ -8,6 +8,7 @@ import { LottieModule } from 'ngx-lottie';
 import player, { LottiePlayer } from 'lottie-web';
 import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire/compat";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export function playerFactory(): LottiePlayer {
   return player;
@@ -25,6 +26,7 @@ export function playerFactory(): LottiePlayer {
     LottieModule.forRoot({ player: playerFactory }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

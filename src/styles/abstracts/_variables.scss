@@ -5,6 +5,7 @@
   --100vh: calc(var(--vh, 1vh) * 100);
   --main-width: 120rem;
   --contain-width: 48rem;
+  --content-padding: 1.125rem;
   --transition: 200ms ease 0s;
   --bottom-menu-height: calc(4rem + env(safe-area-inset-bottom));
   --tap-height: 44px;
@@ -63,4 +64,10 @@
   --five-sixths: calc(var(--sixth) * 5);
   --seventh: calc(100% / 7);
   --eighth: calc(100% / 8);
+}
+
+@media screen and (min-width: 769px) {
+  :root {
+    --content-padding: 3rem;
+  }
 }
